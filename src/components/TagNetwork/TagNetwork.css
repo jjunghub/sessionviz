@@ -1,0 +1,155 @@
+.tag-wrapper {
+  /* margin: 0;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  flex-direction: column;
+  border: 1px solid gray;
+  flex: 1 1 800px; */
+
+  margin: 20px;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  flex-direction: column;
+  flex: 1 1 800px;
+}
+
+.tag-title {
+  margin-top: 1rem;
+  font: 24px "Raleway", Helvetica, Arial, sans-serif;
+  /* border: 1px solid pink; */
+  text-align: left;
+  text-decoration: underline;
+}
+
+.tag-contents {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.tag-svg-style {
+  height: 70vmin;
+  /* border: 1px solid lightcoral; */
+  flex: 1 1 70vmin;
+  /* border: 1px solid black; */
+}
+
+.tag-root-taglist {
+  height: 70vmin;
+  /* border: 1px solid lightcoral; */
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 20vmin;
+  /* border: 1px solid black; */
+}
+.tag-select-list {
+  text-align: left;
+  margin: 4px;
+  /* border: 1px solid silver; */
+}
+.tag-list {
+  overflow: scroll;
+  height: 100%;
+  text-align: left;
+}
+.tag-session-tags {
+  display: inline-block;
+  margin: 4px;
+  padding: 4px;
+  border: 1px solid;
+  border-radius: 0px;
+  background-color: #eee;
+}
+.tag-cell {
+  display: flex;
+  /* border-radius: 4px; */
+  font: 15px Helvetica, Arial, sans-serif;
+  border: 1px solid white;
+}
+.tag-rank {
+  flex: 0 0 20px;
+  margin: 4px;
+  padding: 2px;
+  text-align: right;
+  /* border-radius: 4px; */
+  font: 15px serif;
+  border: 1px solid white;
+}
+.tag-a-tag {
+  display: inline-block;
+  margin: 4px;
+  padding: 2px;
+  /* border-radius: 4px; */
+  font: 15px Helvetica, Arial, sans-serif;
+  border: 2px solid white;
+}
+.tag-a-tag:hover {
+  display: block;
+  margin: 4px;
+  padding: 2px;
+  /* border: 1px solid; */
+  /* border-radius: 4px; */
+}
+.tag-number {
+  flex: 1 0;
+  margin: 4px;
+  padding: 2px;
+  text-align: right;
+  /* border-radius: 4px; */
+  font: 15px Helvetica, Arial, sans-serif;
+  border: 1px solid white;
+}
+
+.tag-node {
+  stroke-opacity: 0.9;
+  stroke-width: 1;
+  fill-opacity: 0.95;
+  cursor: pointer;
+}
+.tag-node[dim="true"] {
+  fill-opacity: 0.05;
+  stroke-opacity: 0.1;
+}
+.tag-link {
+  /* stroke: rgb(216, 217, 218); */
+  /* stroke: #eee; */
+  stroke-opacity: 0;
+}
+.tag-link[bright="true"] {
+  stroke: #ddd;
+  /* stroke-opacity: 0.tag-3; */
+}
+.tag-link[dim="true"] {
+  stroke-opacity: 0;
+}
+.tag-label {
+  -webkit-font-smoothing: antialiased;
+  pointer-events: none;
+  width: 100px;
+  display: none;
+  font: 18px "Oswald", "Barlow", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 2px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 -2px 0 #fff;
+  /* -moz-text-stroke: 1px #fff; */
+  /* -webkit-text-stroke: 1px #fff; */
+}
+
+select {
+  height: 2rem;
+  margin: 4px;
+  padding: 4px;
+  font-size: 16px;
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  /* background: url(이미지경로) no-repeat 95% 50%; 화살표 모양의 이미지 */
+} /* IE 10, 11의 네이티브 화살표 숨기기 */
+select::-ms-expand {
+  display: none;
+}

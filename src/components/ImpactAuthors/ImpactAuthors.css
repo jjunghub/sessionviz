@@ -1,0 +1,86 @@
+.ia-wrapper {
+  margin: 20px;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  flex-direction: column;
+  flex: 1 1 800px;
+  /* border: 1px solid pink; */
+}
+.ia-title {
+  margin-top: 1rem;
+  font: 24px "Raleway", Helvetica, Arial, sans-serif;
+  /* border: 1px solid pink; */
+  text-align: left;
+  text-decoration: underline;
+}
+.ia-contents {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+div.ia-table {
+  width: 100%;
+  min-height: 100px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+div.ia-head {
+  padding: 0.5rem;
+
+  display: flex;
+  text-align: center;
+  border-bottom: 3px double black;
+  /* font: 13px Helvetica, Arial, sans-serif; */
+  font-size: 12px;
+  font-weight: bold;
+}
+.ia-col1 {
+  flex: 1 1;
+}
+.ia-col2 {
+  flex: 3 3;
+}
+.ia-col3 {
+  flex: 3 3;
+}
+.ia-col4 {
+  flex: 2 2;
+}
+.ia-col5 {
+  flex: 1 1;
+}
+
+.ia-aff {
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.ia-period {
+  font: 16px sans-serif;
+}
+.ia-total-cite {
+  font: 16px sans-serif;
+}
+
+div.ia-row {
+  padding: 0.5rem;
+  display: flex;
+  text-align: center;
+  vertical-align: center;
+  border-bottom: 1px solid gray;
+  font: 16px serif, Helvetica, Arial, sans-serif;
+  max-height: 2rem;
+}
+
+div.ia-rows :hover {
+  background: #eee;
+  cursor: pointer;
+}
