@@ -1,0 +1,121 @@
+.ip-wrapper {
+  margin: 20px;
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  flex-direction: column;
+  flex: 1 1 800px;
+  /* border: 1px solid pink; */
+}
+.ip-title {
+  margin-top: 1rem;
+  font: 24px "Raleway", Helvetica, Arial, sans-serif;
+  /* border: 1px solid pink; */
+  text-align: left;
+  text-decoration: underline;
+}
+.ip-contents {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+div.ip-table {
+  width: 100%;
+  min-height: 100px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+
+div.ip-head {
+  padding: 0.5rem;
+
+  display: flex;
+  text-align: center;
+  border-bottom: 3px double black;
+  /* font: 13px Helvetica, Arial, sans-serif; */
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ip-col1 {
+  flex: 2 2;
+}
+.ip-col2 {
+  flex: 7 7;
+}
+.ip-col3 {
+  flex: 3 3;
+}
+.ip-col4 {
+  flex: 1 1;
+}
+
+div.ip-rank {
+  flex: 2 2;
+  font: 16px serif, Helvetica, Arial, sans-serif;
+}
+div.ip-left {
+  flex: 7 7;
+  overflow: hidden;
+  text-align: left;
+
+  & .ip-title {
+    margin-top: 0;
+    font: 16px serif, Helvetica, Arial, sans-serif;
+    display: block;
+    max-height: 2.5rem;
+    overflow: -webkit-paged-x;
+  }
+  & .ip-pub_year {
+    font: 12px Helvetica, Arial, sans-serif;
+    display: inline;
+    padding-right: 8px;
+    font-weight: bold;
+  }
+  & .ip-publication {
+    font: 12px Helvetica, Arial, sans-serif;
+    display: inline;
+    padding-right: 8px;
+    font-style: italic;
+  }
+  & .ip-authors {
+    font: 12px Helvetica, Arial, sans-serif;
+    display: block;
+  }
+}
+div.ip-right {
+  flex: 3 3;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+div.ip-number {
+  flex: 1 1;
+  display: inline-grid;
+  margin-left: 10px;
+  font: 16px Helvetica, Arial, sans-serif;
+  text-align: center;
+  align-items: center;
+}
+
+div.ip-row {
+  padding: 0.5rem;
+  display: flex;
+  text-align: center;
+  vertical-align: center;
+  border-bottom: 1px solid gray;
+  font: 16px serif, Helvetica, Arial, sans-serif;
+  // max-height: 3rem;
+}
+
+div.ip-rows :hover {
+  background: #eee;
+  cursor: pointer;
+}

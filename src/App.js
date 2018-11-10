@@ -15,9 +15,9 @@ class App extends Component {
     try {
       console.log("Data Loading.");
       const data = await Promise.all([
-        require("./data/timeline_api.json"),
-        require("./data/impacttags_api.json"),
-        require("./data/impactauthors_api.json"),
+        require("./data/api_timeline.json"),
+        require("./data/api_impacttags.json"),
+        require("./data/api_impactauthors.json"),
         require("./data/from_paper_api.json")
       ]); //TODO : CONNECT API
       console.log("successfully load dataset!");
@@ -87,7 +87,8 @@ class App extends Component {
         />
 
         <ImpactPapers
-          targetId={"impactTable"}
+          title={"IMPACT PAPERS"}
+          targetId={"impactPapers"}
           data={this.state.data_paperTable}
           view={this.state.view}
         />

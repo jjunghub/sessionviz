@@ -1,6 +1,10 @@
 import React from "react";
 import * as d3 from "d3";
-import "./ImpactPapers.css";
+import "./ImpactPapers.scss";
+
+// import * as classNames from "classnames/bind";
+// const cx = classNames.bind(style);
+const cx = x => "ip-" + x;
 
 class ImpactPapers extends React.Component {
   view = "famous";
@@ -8,41 +12,41 @@ class ImpactPapers extends React.Component {
   colorScale = undefined;
   thisyear = 2018;
 
-  cx = x => x;
-
   dataProcessing = data => {
     console.log(data);
   };
 
   drawTable = (targetId, data) => {
     const root = d3.select("#" + targetId);
+    root.selectAll("." + cx("row")).remove();
 
     let rows = root
-      .select("." + this.cx("rows"))
-      .selectAll("div." + this.cx("row"))
+      .select("." + cx("rows"))
+      .selectAll("div." + cx("row"))
       .data(data)
       .enter()
       .append("div")
-      .attr("class", this.cx("row"));
+      .attr("class", cx("row"));
 
     rows
       .append("div")
-      .attr("class", this.cx("rank"))
+      .attr("class", cx("rank"))
       .text((d, i) => i + 1);
-    let meta = rows.append("div").attr("class", this.cx("left"));
+
+    let meta = rows.append("div").attr("class", cx("left"));
     const detail = ["title", "publication", "pub_year"];
     detail.forEach(about => {
       meta
         .append("div")
-        .attr("class", this.cx(about))
+        .attr("class", cx(about))
         .text(d => d[about]);
     });
 
-    let region = rows.append("div").attr("class", this.cx("right"));
+    let region = rows.append("div").attr("class", cx("right"));
 
     rows
       .append("div")
-      .attr("class", this.cx("number"))
+      .attr("class", cx("number"))
       .text(d => d.cereb_cite);
 
     let size = {
@@ -95,39 +99,73 @@ class ImpactPapers extends React.Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (this.props !== nextProps) {
-      d3.selectAll("." + this.cx("row")).remove();
+      d3.selectAll("." + cx("row")).remove();
       return true;
     } else {
       return false;
     }
   };
 
+  componentDidMount() {
+    window.addEventListener("resize", () => this.changeView());
+  }
+
   componentDidUpdate() {
     //전체적인 d3 render구조가 어떤게 더 좋을지는 좀 더 생각해봐야겠다.
     if (this.props.data) {
-      if (this.props.view !== undefined) this.view = this.props.view;
-      this.drawTable(this.props.targetId, this.props.data[this.view]);
+      // if (this.props.view !== undefined) this.view = this.props.view;
+      this.changeView();
+      // this.drawTable(this.props.targetId, this.props.data[this.view]);
     }
   }
 
+  changeView = () => {
+    if (this.props.data === undefined) return;
+    const view = d3
+      .select("." + cx("wrapper"))
+      .select("#view")
+      .node().value;
+
+    this.drawTable(this.props.targetId, this.props.data[view]);
+  };
+
   render() {
     return (
-      <div id={this.props.targetId} className={this.cx("table")}>
-        <div className={this.cx("head")}>
-          <div className={this.cx("col1")}> RANK </div>
-          <div className={this.cx("col2")}> PAPER </div>
-          <div className={this.cx("col3")}> CITE BURST </div>
-          <div className={this.cx("col4")}> TOTAL C</div>
-        </div>
-        <div className={this.cx("rows")} />
-
-        {/* <div className={this.cx("row-style")}>
-          <div className={this.cx("left-style")}>
-            <div className={this.cx("title-style")}>IM PAPERS TITLE</div>
-            <div className={this.cx("authors-style")}>AUTHORS</div>
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: "2 0" }} />
+        <div className={cx("wrapper")}>
+          <div className={cx("title")}>{this.props.title}</div>
+          <div style={{ textAlign: "right" }}>
+            <select
+              name="view"
+              id="view"
+              onChange={() => this.changeView()}
+              style={{ textAlign: "center" }}
+            >
+              <option value="famous">most total cited papers</option>
+              <option value="trending">
+                high citation increase in last 4 years
+              </option>
+              <option value="new">new papers in 2018</option>
+            </select>
           </div>
-          <div className={this.cx("right-style")} />
-        </div> */}
+          <div className={cx("contents")}>
+            <div id={this.props.targetId} className={cx("table")}>
+              <div className={cx("head")}>
+                <div className={cx("col1")}> RANK </div>
+                <div className={cx("col2")}> PAPER </div>
+                <div className={cx("col3")}>
+                  {"CITATION BURST"}
+                  <br />
+                  {"(YEARLY CITED TIMELINE)"}
+                </div>
+                <div className={cx("col4")}> TOTAL CITATION</div>
+              </div>
+              <div className={cx("rows")} />
+            </div>
+          </div>
+        </div>
+        <div style={{ flex: "2 0" }} />
       </div>
     );
   }

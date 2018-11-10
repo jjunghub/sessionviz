@@ -9,11 +9,10 @@ const cx = x => "ia-" + x;
 class ImpactAuthors extends React.Component {
   view = "famous";
 
-  dataProcessing = data => {
-    console.log(data);
-  };
+  dataProcessing = data => {};
 
   onClickAuthor = auid => {
+    // 일썹화면
     console.log(auid);
   };
   drawTable = (targetId, data) => {
